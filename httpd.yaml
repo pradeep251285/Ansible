@@ -1,0 +1,13 @@
+- name: installing httpd
+  hosts: web
+  become: yes
+  tasks:
+  - name: installing httpd
+    ansible.builtin.dnf: # This commond is used to install packages
+      name: httpd
+      state: latest
+  - name: starting httpd
+    ansible.builtin.service: # This commond is used to start the service
+      name: httpd
+      state: started
+      enabled: yes    
